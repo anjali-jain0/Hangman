@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+	<title>HangMan</title>
+</head>
+<style>
+	#canvas1
+	{
+		border:2px solid black;
+		position:fixed;
+		top:200px;
+		left:550px;
+		background-color:#E8DAEF;
+		
+	}
+	body
+	{
+		margin:0px;
+	}
+	.div1
+	{
+		border-bottom:1px solid black;
+		width:30px;
+		height:20px;
+		position:absolute;
+		top:150px;
+	}
+</style>
+<body>
+	<h2 style="text-align:center;">HangMan</h2>
+	<h5 style="text-align:center;">Hint:Animals name</h5>
+	<button style="width:100px;height:50px;font-size:20px;position:fixed;top:10px;left:20px;" onclick="f()">Start</button>
+	
+	<div style="left:500px;" id="1" class="div1"></div>
+	<div style="left:540px;" id="2" class="div1"></div>
+	<div style="left:580px;" id="3" class="div1"></div>
+	<div style="left:620px;" id="4" class="div1"></div>
+	<div style="left:660px;" id="5" class="div1"></div>
+	<div style="left:700px;" id="6" class="div1"></div>
+	<div style="left:740px;" id="7" class="div1"></div>
+	<div style="left:780px;" id="8" class="div1"></div>
+	<div style="left:820px;" id="9" class="div1"></div>
+	<div style="left:860px;" id="10" class="div1"></div>
+
+	<p style="font-size:30px;margin-left:20px;" id="p2"></p>
+	<canvas id="canvas1" width="100%" height="100%"></canvas>
+	<button id="b1" onclick="f1('A')" style="position:fixed;top:600px;left:140px;width:40px;">A</button>
+	<button id="b1" onclick="f1('B')" style="position:fixed;top:600px;left:180px;width:40px;">B</button>
+	<button id="b1" onclick="f1('C')" style="position:fixed;top:600px;left:220px;width:40px;">C</button>
+	<button id="b1" onclick="f1('D')" style="position:fixed;top:600px;left:260px;width:40px;">D</button>
+	<button id="b1" onclick="f1('E')" style="position:fixed;top:600px;left:300px;width:40px;">E</button>
+	<button id="b1" onclick="f1('F')" style="position:fixed;top:600px;left:340px;width:40px;">F</button>
+	<button id="b1" onclick="f1('G')" style="position:fixed;top:600px;left:380px;width:40px;">G</button>
+	<button id="b1" onclick="f1('H')" style="position:fixed;top:600px;left:420px;width:40px;">H</button>
+	<button id="b1" onclick="f1('I')" style="position:fixed;top:600px;left:460px;width:40px;">I</button>
+	<button id="b1" onclick="f1('J')" style="position:fixed;top:600px;left:500px;width:40px;">J</button>
+	<button id="b1" onclick="f1('K')" style="position:fixed;top:600px;left:540px;width:40px;">K</button>
+	<button id="b1" onclick="f1('L')" style="position:fixed;top:600px;left:580px;width:40px;">L</button>
+	<button id="b1" onclick="f1('M')" style="position:fixed;top:600px;left:620px;width:40px;">M</button>
+	<button id="b1" onclick="f1('N')" style="position:fixed;top:600px;left:660px;width:40px;">N</button>
+	<button id="b1" onclick="f1('O')" style="position:fixed;top:600px;left:700px;width:40px;">O</button>
+	<button id="b1" onclick="f1('P')" style="position:fixed;top:600px;left:740px;width:40px;">P</button>
+	<button id="b1" onclick="f1('Q')" style="position:fixed;top:600px;left:780px;width:40px;">Q</button>
+	<button id="b1" onclick="f1('R')" style="position:fixed;top:600px;left:820px;width:40px;">R</button>
+	<button id="b1" onclick="f1('S')" style="position:fixed;top:600px;left:860px;width:40px;">S</button>
+	<button id="b1" onclick="f1('T')" style="position:fixed;top:600px;left:900px;width:40px;">T</button>
+	<button id="b1" onclick="f1('U')" style="position:fixed;top:600px;left:940px;width:40px;">U</button>
+	<button id="b1" onclick="f1('V')" style="position:fixed;top:600px;left:980px;width:40px;">V</button>	
+	<button id="b1" onclick="f1('W')" style="position:fixed;top:600px;left:1020px;width:40px;">W</button>	
+	<button id="b1" onclick="f1('X')" style="position:fixed;top:600px;left:1060px;width:40px;">X</button>	
+	<button id="b1" onclick="f1('Y')" style="position:fixed;top:600px;left:1100px;width:40px;">Y</button>	
+	<button id="b1" onclick="f1('Z')" style="position:fixed;top:600px;left:1140px;width:40px;"s>Z</button>	
+
+</body>
+<script>
+    var array=["HEN","FROG","ELEPHANT","DOG","CAT","HORSE","GIRAFFEE","PIG"];
+    var select=array[Math.floor(Math.random()*(array.length-1))];
+
+    function f()
+    {
+    	var x=select.length;
+    	document.getElementById("p2").innerHTML=x;
+    }
+     var i;var g=1;
+    function f1(i)
+    {
+    	g--;
+      for(var f=0;f<select.length;f++)
+      {
+      	if(select[f]==i)
+      	{
+            g=1;	
+            {document.getElementById(f+1).innerHTML=i;}
+      	}
+      }
+      	if(g==0)
+      	{
+      		ctx.beginPath();
+      		ctx.arc(86,86,25,0,2*Math.PI);
+      		ctx.stroke();
+      	}
+      	if(g==-1)
+      	{
+      		ctx.beginPath();
+      		ctx.moveTo(86,111);
+      		ctx.lineTo(86,200);
+      		ctx.stroke();
+      	}
+      	if(g==-2)
+      	{
+      		ctx.beginPath();
+      		ctx.moveTo(86,111);
+      		ctx.lineTo(40,140);
+      		ctx.stroke();
+      	}
+      	if(g==-3)
+      	{
+      		ctx.beginPath();
+      		ctx.moveTo(86,111);
+      		ctx.lineTo(132,140);
+      		ctx.stroke();
+      	}
+        if(g==-4)
+        {
+        	ctx.font="40px Arial";
+        	ctx.fillText("Game Over!!",10,110);
+        }
+
+      }
+    
+
+	var c=document.getElementById("canvas1");
+	var ctx=c.getContext("2d");
+	c.width=window.innerWidth*0.20;
+	c.height=window.innerHeight*0.40;
+
+	ctx.beginPath();
+	ctx.moveTo(20,20);
+	ctx.lineTo(20,c.height-20);
+	ctx.stroke();
+
+	ctx.beginPath();
+	ctx.moveTo(20,20);
+	ctx.lineTo(c.width-20,20);
+	ctx.stroke();
+
+	ctx.beginPath();
+	ctx.moveTo(20,20);
+	ctx.lineTo(c.width/4,c.height/4);
+	ctx.stroke();
+</script>
+</html>
